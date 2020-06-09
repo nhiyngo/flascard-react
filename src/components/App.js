@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import FlashcardList from './FlashcardList';
+import './app.css';
 
 function App() {
   const [flashcards, setFlashcards] = useState(SAMPLE);
@@ -20,7 +21,7 @@ const SAMPLE = [
     id: 2,
     question: 'Question 2?',
     answer: 'Answer',
-    options: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4'],
+    options: ['Answer', 'Answer 1', 'Answer 2', 'Answer 3'],
   },
 ];
 
