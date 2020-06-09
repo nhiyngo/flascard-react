@@ -9,6 +9,9 @@
   },
 
   "rules": {
+    "react/jsx-filename-extension": [1, {
+      "extensions": [".js", ".jsx"]
+    }],
     "no-console": 2,
     "prettier/prettier": [
       "error",
