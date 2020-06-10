@@ -10,8 +10,10 @@ function App() {
     const responses = await axios.get('https://opentdb.com/api.php?amount=10');
 
     const questions = responses.data.results.map((questionItem, index) => {
-      const answer = questionItem.correct_answer;
-      const options = [...questionItem.incorrect_answers, answer].map((a) => decodeString(a));
+      const answer = decodeString(questionItem.correct_answer);
+      const options = [
+        ...questionItem.incorrect_answers.map((a) => decodeString(a)),
+        answer];
 
       return {
         id: `${index}-${Date.now()}`,
@@ -37,7 +39,9 @@ function App() {
   }
 
   return (
-    <FlashcardList flashcards={flashcards} />
+    <div className="container">
+      <FlashcardList flashcards={flashcards} />
+    </div>
   );
 }
 
