@@ -20,8 +20,8 @@ const FlashCard = ({ flashcard: { question, answer, options } }) => {
     setMaxHeight();
   }, [question, answer, options]);
 
-  // to recalculate the height every time our page resizes
-  // [] means occurs only the first time the component loads
+  // to recalculate the height of the cards every time our page resizes
+  // empty [] means occurs only the first time the component loads
   useEffect(() => {
     window.addEventListener('resize', setMaxHeight);
     // get called whenever out component destroys itself
@@ -38,7 +38,7 @@ const FlashCard = ({ flashcard: { question, answer, options } }) => {
       <div className="front" ref={frontEl}>
         {question}
         <div className="flashcard-options">
-          {options.map((option) => <div className="flashcard-option">{option}</div>)}
+          {options.map((option) => <div key={option} className="flashcard-option">{option}</div>)}
         </div>
       </div>
 
