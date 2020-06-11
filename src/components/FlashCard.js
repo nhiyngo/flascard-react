@@ -11,7 +11,7 @@ const FlashCard = ({ flashcard: { question, answer, options } }) => {
     const frontHeight = frontEl.current.clientHeight;
     const backHeight = backEl.current.clientHeight;
 
-    setHeight(Math.max(frontHeight, backHeight, 100));
+    setHeight(Math.max(frontHeight, backHeight, 150));
   }
 
   // useEffect() invokes (recalculate the height depends on the length of the elements)
