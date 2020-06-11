@@ -8,8 +8,8 @@ const FlashCard = ({ flashcard: { question, answer, options } }) => {
   const backEl = useRef();
 
   function setMaxHeight() {
-    const frontHeight = frontEl.current.getBoundingClientRect().height;
-    const backHeight = backEl.current.getBoundingClientRect().height;
+    const frontHeight = frontEl.current.clientHeight;
+    const backHeight = backEl.current.clientHeight;
 
     setHeight(Math.max(frontHeight, backHeight, 100));
   }
@@ -24,7 +24,8 @@ const FlashCard = ({ flashcard: { question, answer, options } }) => {
   // empty [] means occurs only the first time the component loads
   useEffect(() => {
     window.addEventListener('resize', setMaxHeight);
-    // get called whenever out component destroys itself
+
+    // Remove event listener on cleanup
     return () => window.removeEventListener('resize', setMaxHeight);
   }, []);
 
